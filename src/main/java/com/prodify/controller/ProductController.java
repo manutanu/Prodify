@@ -1,4 +1,4 @@
-package com.prodify.prodify.controller;
+package com.prodify.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prodify.prodify.model.Product;
-import com.prodify.prodify.repository.ProductRepository;
+import com.prodify.model.Product;
 import com.prodify.prodify.service.ProductService;
+import com.prodify.repository.ProductRepository;
 
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value = "/productapi")
+@RequestMapping(value = "/productapi") ///getAllProductList
 public class ProductController {
 	
 	@Autowired

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@ComponentScan({"com.prodify"})
+@ComponentScan({"com.prodify","com.prodify.security"})
 @EnableJpaRepositories({"com.prodify.repository","com.prodify.security.repository"})
 public class ProdifyApplication {
 

@@ -12,19 +12,21 @@ import com.prodify.security.service.CustomUserDetailService;
 
 @Configuration
 @EnableWebSecurity
-@EnableJpaRepositories(basePackages = {"com.prodify.security.repository"})
+//@EnableJpaRepositories(basePackages = {"com.prodify.security.repository"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private CustomUserDetailService userDetailsService;
 	
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
+		
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/productapi/**").authenticated().anyRequest().permitAll();
+		http.authorizeRequests().antMatchers("/productapi/validate/**").authenticated().anyRequest().permitAll().and().httpBasic();
 		}
 }

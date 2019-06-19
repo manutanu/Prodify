@@ -9,6 +9,6 @@ import com.prodify.security.model.User;
 
 @Repository
 public interface UserDataRepository extends JpaRepository<User,Integer>{
-
-	public Optional<User> findByUserName(String user_name);
+	
+	public Optional<User> findByUsername(String username);
 }

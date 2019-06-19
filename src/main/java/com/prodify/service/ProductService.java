@@ -1,4 +1,4 @@
-package com.prodify.prodify.service;
+package com.prodify.service;
 
 import java.util.List;
 

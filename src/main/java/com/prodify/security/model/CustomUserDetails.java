@@ -27,7 +27,7 @@ public class CustomUserDetails extends User implements UserDetails{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return getUser_name();
+		return getUsername();
 	}
 
 	@Override

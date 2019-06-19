@@ -1,5 +1,7 @@
 package com.prodify.controller;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prodify.model.Product;
-import com.prodify.prodify.service.ProductService;
 import com.prodify.repository.ProductRepository;
+import com.prodify.security.model.User;
+import com.prodify.security.repository.UserDataRepository;
+import com.prodify.service.ProductService;
 
 
 @RestController
@@ -18,15 +22,26 @@ import com.prodify.repository.ProductRepository;
 public class ProductController {
 	
 	@Autowired
+	private UserDataRepository userDataRepository;
+	
+	@Autowired
 	private ProductService productService;
 	
 	@Autowired
 	private ProductRepository  productRepository;
+		
 	
 	@GetMapping(value="/getAllProductList")
 	public List<Product> getAllProducts(){
 		
 		return productService.getAllProducts();
+	}
+	
+	@GetMapping(value="/validate")
+	public Map<String,String> validate(){
+		Map<String , String> response=new HashMap<>();	
+		response.put("status","SUCCESS");
+		return response;
 	}
 	
 	@GetMapping(value="/insertData")
@@ -45,5 +60,12 @@ public class ProductController {
 		productRepository.save(p6);
 		Product p7=new Product("Roadsters Shoes","best Durable shoes by Roadsters for normal wear" , 100);
 		productRepository.save(p7);
+		
+		User u1=new User();
+		u1.setUser_email("absc");
+		u1.setUser_password("hellow");
+		u1.setUsername("manu");
+		userDataRepository.save(u1);
+		
 	}
 }

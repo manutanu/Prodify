@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prodify.model.Product;
 import com.prodify.repository.ProductRepository;
-import com.prodify.security.model.User;
-import com.prodify.security.repository.UserDataRepository;
 import com.prodify.service.ProductService;
 
 
@@ -20,9 +18,6 @@ import com.prodify.service.ProductService;
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value = "/productapi") ///getAllProductList
 public class ProductController {
-	
-	@Autowired
-	private UserDataRepository userDataRepository;
 	
 	@Autowired
 	private ProductService productService;
@@ -61,11 +56,6 @@ public class ProductController {
 		Product p7=new Product("Roadsters Shoes","best Durable shoes by Roadsters for normal wear" , 100);
 		productRepository.save(p7);
 		
-		User u1=new User();
-		u1.setUser_email("absc");
-		u1.setUser_password("hellow");
-		u1.setUsername("manu");
-		userDataRepository.save(u1);
 		
 	}
 }

@@ -15,7 +15,7 @@ import com.prodify.service.ProductService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping(value = "/productapi") ///getAllProductList
 public class ProductController {
 	
